@@ -12,7 +12,6 @@ namespace SeleniumExample
         [SetUp]
         public void SetUp()
         {
-
             driver = new ChromeDriver();
         }
 
@@ -21,5 +20,12 @@ namespace SeleniumExample
         {
             driver.Navigate().GoToUrl("https://www.google.com/");
         }
+
+        [TearDown]
+        public void TearDown()
+        {
+            driver.Quit();
+        }
+
     }
 }
