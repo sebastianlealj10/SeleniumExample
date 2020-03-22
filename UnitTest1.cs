@@ -8,6 +8,7 @@ namespace SeleniumExample
     public class UnitTest1
     {
         IWebDriver driver;
+        string title;
 
         [SetUp]
         public void SetUp()
@@ -19,6 +20,8 @@ namespace SeleniumExample
         public void OpenBrowser ()
         {
             driver.Navigate().GoToUrl("https://www.google.com/");
+            title = driver.Title;
+            Assert.AreEqual(title, "Google","The title is ok");
         }
 
         [TearDown]
