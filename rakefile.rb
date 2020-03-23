@@ -1,6 +1,6 @@
 require 'albacore'
 
-task :default => [:install, :msbuild]
+task :default => [:msbuild, :test]
 
 build :msbuild do |msb|
   msb.file = 'SeleniumExample.sln'
@@ -8,7 +8,7 @@ build :msbuild do |msb|
   msb.target = [:Restore, :Clean, :Build ]      
 end
 
-desc "Install required packages"
-nugets_pack :install do |cmd|
-  cmd.nuspec = 'SeleniumExample.sln'
+nunit :test do |nunit|
+    nunit.command = "nunit-console.exe"
+    nunit.assemblies "bin\Debug\SeleniumExample.dll"
 end
