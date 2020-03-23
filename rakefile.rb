@@ -9,7 +9,7 @@ build :msbuild do |msb|
 end
 
 desc "Run all nunit tests"
-test :nunit do |nunit|
+nunit :nunit => [:msbuild] do |nunit|
     nunit.command = "nunit-console.exe"
     nunit.assemblies "bin\Debug\SeleniumExample.dll"
 end
