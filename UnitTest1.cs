@@ -14,6 +14,7 @@ namespace SeleniumExample
         public void SetUp()
         {
             driver = new ChromeDriver();
+
         }
 
         [Test]
