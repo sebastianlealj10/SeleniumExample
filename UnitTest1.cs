@@ -7,8 +7,8 @@ namespace SeleniumExample
     [TestFixture]
     public class UnitTest1
     {
-        IWebDriver driver;
-        string title;
+        private IWebDriver driver;
+        private string title;
 
         [SetUp]
         public void SetUp()
@@ -21,7 +21,7 @@ namespace SeleniumExample
         {
             driver.Navigate().GoToUrl("https://www.google.com/");
             title = driver.Title;
-            Assert.AreEqual(title, "Google","The title is ok");
+            Assert.AreEqual(title, "Google","The title is not ok");
         }
 
         [TearDown]
