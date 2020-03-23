@@ -8,7 +8,8 @@ build :msbuild do |msb|
   msb.target = [:Restore, :Clean, :Build ]      
 end
 
-nunit :test do |nunit|
+desc "Run all nunit tests"
+nunit :test => [:build] do |cmd|
     nunit.command = "nunit-console.exe"
     nunit.assemblies "bin\Debug\SeleniumExample.dll"
 end
