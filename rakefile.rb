@@ -9,7 +9,7 @@ build :msbuild do |msb|
 end
 
 desc "Install required packages"
-nugetinstall :install do |cmd|
+nugets_pack :install do |cmd|
   cmd.package = 'SeleniumExample.sln'
   cmd.version = '1.0'
 end
