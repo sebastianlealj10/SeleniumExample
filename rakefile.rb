@@ -1,9 +1,15 @@
 require 'albacore'
 
-task :default => [:msbuild]
+task :default => [:install, :msbuild]
 
 build :msbuild do |msb|
   msb.file = 'SeleniumExample.sln'
   msb.properties = { :configuration => :Debug }
-  msb.target = [ :Clean, :Build ]      
+  msb.target = [:Restore, :Clean, :Build ]      
+end
+
+desc "Install required packages"
+nugetinstall :install do |cmd|
+  cmd.package = 'SeleniumExample.sln'
+  cmd.version = '1.0'
 end
