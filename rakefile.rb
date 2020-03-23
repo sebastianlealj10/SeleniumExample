@@ -1,6 +1,6 @@
 require 'albacore'
 
-task :default => [:msbuild, :nunit]
+task :default => [:msbuild, :test]
 
 build :msbuild do |msb|
   msb.file = 'SeleniumExample.sln'
@@ -9,7 +9,7 @@ build :msbuild do |msb|
 end
 
 desc "Run all nunit tests"
-nunit :nunit => [:msbuild] do |nunit|
+nunit :test=> [:msbuild] do |nunit|
     nunit.command = "nunit-console.exe"
     nunit.assemblies "bin\Debug\SeleniumExample.dll"
 end
