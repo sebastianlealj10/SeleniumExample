@@ -4,6 +4,6 @@ task :default => [:msbuild]
 
 build :msbuild do |msb|
   msb.properties = { :configuration => :Debug }
-  msb.targets = [ :Clean, :Build ]      
-  msb.solution = "AlbacoreDemo.sln"
+  msb.target = [ :Clean, :Build ]      
+  msb.solution = "SeleniumExample.sln"
 end
