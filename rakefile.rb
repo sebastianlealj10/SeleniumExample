@@ -1,6 +1,9 @@
 require 'albacore'
-msbuild :build do |msb|
-  msb.solution = "src/SeleniumExample.sln"
-  msb.targets :clean, :build
-  msb.properties :configuration => :Debug
+
+task :default => [:msbuild]
+
+msbuild :msbuild do |msb|
+  msb.properties = { :configuration => :Debug }
+  msb.targets = [ :Clean, :Build ]      
+  msb.solution = "AlbacoreDemo.sln"
 end
