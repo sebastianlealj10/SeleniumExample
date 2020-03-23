@@ -22,7 +22,7 @@ namespace SeleniumExample
         {
             driver.Navigate().GoToUrl("https://www.google.com/");
             title = driver.Title;
-            Assert.AreEqual(title, "Google","The title is not ok");
+            Assert.AreEqual(title, "Google!","The title is not ok");
         }
 
         [TearDown]
