@@ -1,4 +1,6 @@
 require 'albacore'
+require 'bundler/setup'
+require 'rake/clean'
 
 task :default => [:build, :test]
 
