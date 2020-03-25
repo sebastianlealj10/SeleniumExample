@@ -2,8 +2,8 @@ require 'albacore'
 
 task :default => [:msbuild]
 
-build :msbuild do |msb|
-  msb.file = 'SeleniumExample.sln'
+msbuild :msbuild do |cmd|
+  cmd.solution = 'SeleniumExample.sln'
+  msb.targets = [:Clean, :Build ]      
   msb.properties = { :configuration => :Debug }
-  msb.target = [:Clean, :Build ]      
 end
