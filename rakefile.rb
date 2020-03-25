@@ -9,7 +9,9 @@ msbuild :msbuild do |cmd|
 end
 
 desc "Run all nunit tests"
-nunit :test => [:msbuild] do |nunit|
-  nunit.command = "C:\TeamCity\buildAgent\tools\NUnit.Console.3.11.1\bin\net35\nunit3-console.exe"
+nunit :test do |nunit|
+  mkdir_p(BUILD_OUTPUT_TEST_DIR)  
+  nunit.command = File.join("C:\TeamCity\buildAgent\tools\NUnit.Console.3.11.1\bin\net35\nunit3-console.exe")
   nunit.assemblies = FileList["bin\Debug\SeleniumExample.dll"]
+  nunit.options "/result:#{BUILD_OUTPUT_TEST_DIR}/TestResult.xml"
 end
