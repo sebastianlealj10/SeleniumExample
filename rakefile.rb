@@ -4,7 +4,7 @@ task :default => [:build, :test]
 
 msbuild :build do |cmd|
   cmd.solution = 'SeleniumExample.sln'
-  cmd.targets = [:Clean, :Build ]      
+  cmd.targets = [:Build]      
   cmd.properties = { :Configuration => :Debug }
 end
 
