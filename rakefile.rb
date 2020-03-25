@@ -2,10 +2,10 @@ require 'albacore'
 
 task :default => [:msbuild, :test]
 
-msbuild :msbuild do |cmd|
+msbuild :build do |cmd|
   cmd.solution = 'SeleniumExample.sln'
   cmd.targets = [:Clean, :Build ]      
-  cmd.properties = { :configuration => :Debug }
+  cmd.properties = { :Configuration => :Debug }
 end
 
 desc "Run all nunit tests"
