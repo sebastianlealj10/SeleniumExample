@@ -9,9 +9,8 @@ msbuild :msbuild do |cmd|
 end
 
 desc "Run all nunit tests"
-nunit :test => [:msbuild] do |cmd|
-  cmd.command = "C:\TeamCity\buildAgent\tools\NUnit.Console.3.11.1\bin\net35\nunit3-console.exe"
-  cmd.assemblies = FileList["bin\Debug\SeleniumExample.dll"]
-  cmd.results_path = "C:\TeamCity\buildAgent\temp\agentTmp\n6sSJFPAWStmrA2dqChyfmAytOQSnaEG.nunit.xml"
-  cmd.no_logo
+nunit :test => [:build] do |nunit|
+  nunit.command = "C:\TeamCity\buildAgent\tools\NUnit.Console.3.11.1\bin\net35\nunit3-console.exe"
+  nunit.assemblies = FileList["bin\Debug\SeleniumExample.dll"]
+  nunit.no_logo
 end
